@@ -1,0 +1,8 @@
+.card {
+    width: 18rem;
+    box-shadow:  3px 3px 10px #212529;
+}
+
+.botonCompra {
+    border: 1px solid rgb(143, 137, 137);
+}

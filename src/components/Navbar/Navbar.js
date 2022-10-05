@@ -4,8 +4,8 @@ import Button from '../Button/Button';
 
 const NavBar = () => {
     return (
-        <nav class="navbar bg-light">
-            <div class="container p-3">
+        <nav className="navbar bg-light">
+            <div className="container p-3">
                 <div>
                     TecnoCommerce
                 </div>

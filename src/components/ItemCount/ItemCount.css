@@ -1,0 +1,48 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    width: 18rem;
+    border-radius: 10px;
+    background-color: #e7e7e7;
+}
+
+.buttonCart {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #EA95F8;
+    font-weight: 400;
+}
+
+.count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.count1 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.addCart {
+    border: 1px solid #EA95F8;
+}
+
+.contentText {
+    display: flex;
+}
+
+.text {
+    font-weight: 200;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buttonCarrito {
+    border: none;
+    background-color: transparent;
+    color: #EA95F8;
+    font-weight: 450;
+}
