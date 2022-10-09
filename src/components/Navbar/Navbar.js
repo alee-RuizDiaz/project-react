@@ -7,7 +7,7 @@ const NavBar = () => {
         <nav className="navbar bg-light">
             <div className="container p-3">
                 <div>
-                    TecnoCommerce
+                    Tecno<span className='logo h5'>C</span>ommerce
                 </div>
                 <div>
                     <Button content='Celulares' clases='mx-3 button '/>

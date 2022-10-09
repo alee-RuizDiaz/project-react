@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './ItemCount.css'
 
-const Counter = ({onAdd, stock, text}) => {
+const Counter = ({onAdd, stock, text, text2}) => {
 
     const [count, setCount] = useState(1)
     
@@ -21,7 +21,7 @@ const Counter = ({onAdd, stock, text}) => {
     return (
         <div className="cart p-3">
             <div className="contentText pb-2">
-                <h1 className="h5 text">{text}</h1>
+                <h1 className="h5 text me-5 ms-1">{text}</h1>
             </div>
             <div className="count px-4">
                 <div>

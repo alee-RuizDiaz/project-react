@@ -4,3 +4,14 @@
     border: none;
     font-size: large;
 }
+
+.button:hover {
+    color: #EA95F8;
+    transition: 0.2s;
+}
+
+.logo {
+    color: #EA95F8;
+}
+
+

@@ -1,8 +1,27 @@
 .card {
-    width: 18rem;
+    width: 21rem;
     box-shadow:  3px 3px 10px #212529;
+    transition: 0.2s;
 }
 
+.card:hover {
+    box-shadow:  3px 3px 10px #EA95F8;
+    transform: scale(1.02);
+}   
+
 .botonCompra {
-    border: 1px solid rgb(143, 137, 137);
+    border: 1px solid #EA95F8;
+    color: #EA95F8;
+    background-color: transparent;
+    transition: 0.5s;
+}
+
+.botonCompra:hover {
+    border: 1px solid #F8F9FA;
+    color: #F8F9FA;
+    background-color: #EA95F8;
+}
+
+.card-body {
+    background-color: #F8F9FA;
 }

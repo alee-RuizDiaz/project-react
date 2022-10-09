@@ -1,0 +1,15 @@
+.imgDetail {
+    width: 35rem;
+}
+
+.cardDetail {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.descriptionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;
+}
