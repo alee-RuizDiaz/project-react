@@ -1,9 +1,9 @@
 import { useState } from "react";
 import './ItemCount.css'
 
-const Counter = ({onAdd, stock, text, text2}) => {
+const Counter = ({onAdd, text, stock = 0, initial = 1}) => {
 
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(initial)
     
     const sumar = () => {
         if(count < stock) {
@@ -35,7 +35,7 @@ const Counter = ({onAdd, stock, text, text2}) => {
                 </div>
             </div>
             <div className="addCart mt-3">
-                <button  className="buttonCarrito py-1" onClick={onAdd}>Agregar al carrito</button>
+                <button  className="buttonCarrito py-1" onClick={() => onAdd(count)}>Agregar al carrito</button>
             </div>
         </div>
     )

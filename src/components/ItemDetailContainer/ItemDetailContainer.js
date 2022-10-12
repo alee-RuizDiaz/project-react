@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react"
 import { getProductById } from "../../asyncMock"
 import Spinner from "../Spinner/Spinner"
-import Counter from "../ItemCount/ItemCount"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
+import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState([])
     const [spinner, setSpinner] = useState(true)
 
+    const { productId } = useParams()
+
     useEffect (() => {
-        getProductById('3').then(responde => {
+
+        setSpinner(true)
+
+        getProductById(productId).then(responde => {
             setProduct(responde)
         }).finally (() => {
             setSpinner(false)
         })
-    }, [])
+    }, [productId])
 
     if (spinner) {
         return (
@@ -24,17 +29,11 @@ const ItemDetailContainer = () => {
         )
     }
 
-    const addCart = () => {
-        console.log("Se agrego al carrito")
-      }
 
     return (
-        <div className="detailContainer container">
+        <div className="detailContainer container mt-5">
             <div>
                 <ItemDetail {...product}/>
-            </div>
-            <div className="counterDetail m-auto">
-                <Counter stock={product.stock} text={`Stock: ${product.stock}`} onAdd={addCart}/>
             </div>
         </div>
     )

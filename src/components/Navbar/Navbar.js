@@ -1,18 +1,21 @@
 import './Navbar.css';
 import CartWidget from '../CartWidget/CartWidget';
-import Button from '../Button/Button';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <nav className="navbar bg-light">
             <div className="container p-3">
                 <div>
-                    Tecno<span className='logo h5'>C</span>ommerce
+                    <Link to={'/'} className='tecno'>
+                        <span className='logo'>Tecno</span><span className='logo1 h5'>C</span><span className='logo'>ommerce</span>
+                    </Link>
                 </div>
                 <div>
-                    <Button content='Celulares' clases='mx-3 button '/>
-                    <Button content='Netbooks' clases='mx-3 button '/>
-                    <Button content='Tablet' clases='mx-3 button '/>
+                    <NavLink to={'/category/celular'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }  >Celulares</NavLink>
+                    <NavLink to={'/category/notebook'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>Notbooks</NavLink> 
+                    <NavLink to={'/category/tablet'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>Tablet</NavLink>
                 </div>
                 <div>
                     <CartWidget/>

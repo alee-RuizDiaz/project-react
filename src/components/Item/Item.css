@@ -14,6 +14,7 @@
     color: #EA95F8;
     background-color: transparent;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 .botonCompra:hover {
