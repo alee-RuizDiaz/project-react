@@ -1,12 +1,22 @@
 import "./ItemDetail.css"
 import Counter from "../ItemCount/ItemCount"
+import Checkout from "../Checkout/Checkout"
+import { useState } from "react"
+
 
 const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
     
+    const [finalizar, setFinalizar] = useState('finalizar')
+
+    const ItemCounter = finalizar === 'finalizar' ? Counter : Checkout
+
     const addCart = (count) => {
         const productToAdd = {
             id, name, price, count
         }
+
+        setFinalizar(finalizar === 'finalizar' ? <Checkout/> : <Counter/>)
+
         console.log(productToAdd)
     }
 
@@ -21,7 +31,7 @@ const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
                 <p>Description: {description}</p>
             </div>
             <div className="counterDetail m-auto ms-5">
-                <Counter stock={stock} text={`Stock: ${stock}`} onAdd={addCart}/>
+                <ItemCounter stock={stock} text={`Stock: ${stock}`} onAdd={addCart}/>
             </div>
         </div>
     )

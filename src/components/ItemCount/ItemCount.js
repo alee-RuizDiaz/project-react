@@ -34,7 +34,7 @@ const Counter = ({onAdd, text, stock = 0, initial = 1}) => {
                     <button className="buttonCart" onClick={sumar}>+</button>
                 </div>
             </div>
-            <div className="addCart mt-3">
+            <div className="mt-3">
                 <button  className="buttonCarrito py-1" onClick={() => onAdd(count)}>Agregar al carrito</button>
             </div>
         </div>

@@ -14,6 +14,7 @@
     font-weight: 400;
 }
 
+
 .count {
     display: flex;
     align-items: center;
@@ -41,8 +42,14 @@
 }
 
 .buttonCarrito {
-    border: none;
-    background-color: transparent;
+    width: 15rem;
     color: #EA95F8;
-    font-weight: 450;
+    background-color: transparent;
+    border: 1px solid #EA95F8
+}
+
+.buttonCarrito:hover {
+    color: white;
+    background-color: #EA95F8;
+    transition: 0.3s;
 }
