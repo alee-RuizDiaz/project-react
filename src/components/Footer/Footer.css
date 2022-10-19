@@ -1,0 +1,10 @@
+.icon {
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.icon:hover {
+    transform: scale(1.3);
+}
+
+

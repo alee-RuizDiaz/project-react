@@ -1,12 +1,14 @@
 import "./ItemDetail.css"
 import Counter from "../ItemCount/ItemCount"
 import Checkout from "../Checkout/Checkout"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CartContext } from "../../context/CartContext"
 
 
 const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
     
     const [finalizar, setFinalizar] = useState('finalizar')
+    const { addItem } = useContext(CartContext)
 
     const ItemCounter = finalizar === 'finalizar' ? Counter : Checkout
 
@@ -15,9 +17,10 @@ const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
             id, name, price, count
         }
 
+        addItem(productToAdd)
+        
         setFinalizar(finalizar === 'finalizar' ? <Checkout/> : <Counter/>)
 
-        console.log(productToAdd)
     }
 
     return (
@@ -30,7 +33,7 @@ const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
                 <h2 className="h4 my-4"> $ {price}</h2>
                 <p>Description: {description}</p>
             </div>
-            <div className="counterDetail m-auto ms-5">
+            <div className="counterDetail m-auto ms-lg-5 mb-5 mb-lg-auto">
                 <ItemCounter stock={stock} text={`Stock: ${stock}`} onAdd={addCart}/>
             </div>
         </div>
