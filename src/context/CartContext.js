@@ -6,11 +6,17 @@ export const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([])
     const [totalCount, setTotalCount] = useState(0)
+    const [total, setTotal] = useState(0)
 
 
     useEffect(() =>{
         const contador = countCart()
         setTotalCount(contador)
+    }, [cart])
+
+    useEffect(() => {
+        const total = totalPrice()
+        setTotal(total)
     }, [cart])
 
     const addItem = (productToAdd) => {
@@ -28,7 +34,7 @@ export const CartProvider = ({children}) => {
 
     const removeCart = (id) => {
         const removeProduct = cart.filter(prod => prod.id !== id)
-        setCart(removeProduct) 
+        setCart(removeProduct)
     }
 
     const countCart = () => {
@@ -42,8 +48,19 @@ export const CartProvider = ({children}) => {
 
     }
 
+    const totalPrice = () => {
+        let accu = 0
+
+        cart.forEach(prod => {
+            accu += prod.count * prod.price
+        })
+
+        return accu
+
+    }
+
     return (
-        <CartContext.Provider value={{cart, addItem, removeCart, totalCount}}>
+        <CartContext.Provider value={{cart, addItem, removeCart, totalCount, total}}>
             {children}
         </CartContext.Provider>
     )
