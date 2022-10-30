@@ -3,6 +3,7 @@ import Counter from "../ItemCount/ItemCount"
 import Checkout from "../Checkout/Checkout"
 import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
+import Swal from "sweetalert2"
 
 
 const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
@@ -20,6 +21,14 @@ const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
         addItem(productToAdd)
         
         setFinalizar(finalizar === 'finalizar' ? <Checkout/> : <Counter/>)
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Su producto fue agregado al carrito',
+            showConfirmButton: false,
+            timer: 1800
+          })
 
     }
 

@@ -2,8 +2,31 @@ import './Navbar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { db } from '../../services/firebase';
 
 const NavBar = () => {
+
+    const [categories, setCategories] = useState([])
+
+    useEffect (() => {
+        
+        const collectionRef = query(collection(db, 'categories'), orderBy('order'))
+        
+        getDocs(collectionRef).then(response => {
+            const categoriesAdapted = response.docs.map(doc => {
+                const data = doc.data()
+                const id = doc.id
+
+                return { id, ...data }
+            })
+
+            setCategories(categoriesAdapted)
+
+        })
+    }, [])
+
     return (
         <nav className="navbar bg-light">
             <div className="container p-3">
@@ -13,9 +36,11 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div>
-                    <NavLink to={'/category/celular'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }  >Celulares</NavLink>
-                    <NavLink to={'/category/notebook'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>Notbooks</NavLink> 
-                    <NavLink to={'/category/tablet'} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>Tablet</NavLink>
+                    {
+                        categories.map(cat => (
+                            <NavLink key={cat.id} to={`/category/${cat.slug}`} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>{cat.label}</NavLink>
+                        ))
+                    }
                 </div>
                 <div className='me-2'>
                     <CartWidget/>
