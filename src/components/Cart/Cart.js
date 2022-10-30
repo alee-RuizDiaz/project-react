@@ -2,7 +2,7 @@
 import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
 import ItemCart from "../ItemCart/ItemCart"
-import "./Cart.css"
+
 
 const Cart = () => {
 

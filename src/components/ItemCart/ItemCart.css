@@ -1,0 +1,15 @@
+.cartStyle {
+    display: flex;
+    align-items: center;
+    /*background-color: #F8F9FA;*/
+}
+
+.cartName {
+    display: flex;
+    width: 15rem;
+}
+
+.itemsCart {
+    background-color: #F8F9FA;
+    border-bottom: 1px solid rgb(156, 150, 150);
+}

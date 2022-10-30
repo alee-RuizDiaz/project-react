@@ -1,5 +1,6 @@
 import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
+import "./ItemCart.css"
 
 
 const ItemCart = ({id, name, price, count}) => {
@@ -7,7 +8,7 @@ const ItemCart = ({id, name, price, count}) => {
     const {removeCart} = useContext(CartContext)
 
     return (
-        <div className="d-flex container">
+        <div className="d-flex container itemsCart">
             <div className="cartStyle m-auto my-4">
                 <div className="cartName">
                     <h1 className="h5">{name}</h1>

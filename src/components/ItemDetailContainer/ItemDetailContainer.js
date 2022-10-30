@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { getProductById } from "../../asyncMock"
 import Spinner from "../Spinner/Spinner"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 import { useParams } from "react-router-dom"
+import { getDoc, doc } from "firebase/firestore"
+import { db } from "../../services/firebase"
 
 const ItemDetailContainer = () => {
 
@@ -16,8 +17,12 @@ const ItemDetailContainer = () => {
 
         setSpinner(true)
 
-        getProductById(productId).then(responde => {
-            setProduct(responde)
+        const docRef = doc(db, 'products', productId)
+
+        getDoc(docRef).then(responde => {
+            const data = responde.data()
+            const productAdapted = {id: responde.id, ...data}
+            setProduct(productAdapted)
         }).finally (() => {
             setSpinner(false)
         })
@@ -28,7 +33,6 @@ const ItemDetailContainer = () => {
             <Spinner/>
         )
     }
-
 
     return (
         <div className="detailContainer container mt-4 mt-lg-5 mb-lg-5">
