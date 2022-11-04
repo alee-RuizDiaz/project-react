@@ -1,7 +1,6 @@
 .cartStyle {
     display: flex;
     align-items: center;
-    /*background-color: #F8F9FA;*/
 }
 
 .cartName {
@@ -27,8 +26,4 @@
         font-size: 0.8rem;
     }
 
-    .buttonCartSm {
-        font-size: 4rem;
-        color: aqua;
-    }
 }

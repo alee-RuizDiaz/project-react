@@ -12,7 +12,6 @@ const Item = ({id, img, name, category, price}) => {
                 <div>
                     <Link className='botonCompra button px-5 py-1' to={`/detail/${id}`}>Ver detalles</Link>
                 </div>
-                {/*<Button content={'Ver Detalles'} clases={'botonCompra button px-5'}/>*/}
             </div>
         </div>
     )

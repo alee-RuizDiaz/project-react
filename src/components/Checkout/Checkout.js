@@ -79,7 +79,7 @@ const Checkout = () => {
                     icon: 'success',
                     title: `El id de su orden es: ${orderAdded.id}`,
                     showConfirmButton: false,
-                    timer: 2000
+                    timer: 2500
                   })
 
             } else {
@@ -91,7 +91,11 @@ const Checkout = () => {
             }
 
         }catch (error) {
-            console.log(error)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ocurrio un error al generar orden',
+              })
         } finally {
             setSpinner(false)
         } 
@@ -120,8 +124,8 @@ const Checkout = () => {
                     <label className='labelForm mb-2'>Email:</label>
                     <input className='controls' type={'email'} value={value3} onChange={(e) => setValue3(e.target.value)}></input> 
                 </div>
+                <button onClick={createOrder} className='btn btn-success mt-4'>Generar orden</button>
             </form>
-            <button onClick={createOrder} className='btn btn-success mt-4'>Generar orden</button>
         </div>
     )
 }
