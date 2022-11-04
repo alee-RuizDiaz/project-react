@@ -1,0 +1,27 @@
+.finCompra {
+    display: flex;
+    justify-content: center;
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    height: 10rem;
+    width: 20rem;
+}
+
+.buttonFin {    
+    color: #EA95F8;
+    background-color: transparent;
+    border: 1px solid #EA95F8;
+    text-decoration: none;
+}
+
+
+.buttonFin:hover {
+    color: white;
+    background-color: #EA95F8;
+    transition: 0.3s;
+}
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+}

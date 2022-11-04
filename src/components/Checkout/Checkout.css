@@ -1,24 +1,27 @@
-.finCompra {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #e7e7e7;
+.form-register {
+    width: 35rem;
+    background: #eff2f5;
+    padding: 50px;
+    margin: auto;
     border-radius: 10px;
-    height: 10rem;
-    width: 20rem;
-}
-
-.buttonFin {    
-    color: #EA95F8;
-    background-color: transparent;
-    border: 1px solid #EA95F8;
-    text-decoration: none;
-    
-}
-
-
-.buttonFin:hover {
+    font-family: 'calibri';
     color: white;
-    background-color: #EA95F8;
-    transition: 0.3s;
+    box-shadow: 7px 13px 37px #F8F9FA;
+  }
+
+  .controls {
+    width: 100%;
+    background: #F8F9FA;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #EA95F8;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: black;
+  }
+
+.labelForm {
+    color: black;
+    display: flex;
 }

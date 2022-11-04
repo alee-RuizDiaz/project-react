@@ -1,0 +1,9 @@
+.ordenCompra {
+    display: flex;
+    justify-content: center;
+}
+
+.totalPrice {
+    display: flex;
+    align-items: center;
+}

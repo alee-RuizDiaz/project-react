@@ -1,6 +1,6 @@
 import "./ItemDetail.css"
 import Counter from "../ItemCount/ItemCount"
-import Checkout from "../Checkout/Checkout"
+import ButtonCheckout from "../ButtonCheckout/ButtonCheckout"
 import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import Swal from "sweetalert2"
@@ -9,28 +9,31 @@ import Swal from "sweetalert2"
 const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
     
     const [finalizar, setFinalizar] = useState('finalizar')
-    const { addItem } = useContext(CartContext)
+    const { addItem, productCount } = useContext(CartContext)
 
-    const ItemCounter = finalizar === 'finalizar' ? Counter : Checkout
+    const ItemCounter = finalizar === 'finalizar' ? Counter : ButtonCheckout
 
     const addCart = (count) => {
         const productToAdd = {
             id, name, price, count
         }
 
-        addItem(productToAdd)
+        addItem(productToAdd, count)
         
-        setFinalizar(finalizar === 'finalizar' ? <Checkout/> : <Counter/>)
+        setFinalizar(finalizar === 'finalizar' ? <ButtonCheckout/> : <Counter/>)
 
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Su producto fue agregado al carrito',
+            title: `Se agrego correctamente ${count} ${name}`,
             showConfirmButton: false,
-            timer: 1800
+            timer: 2000
           })
 
     }
+
+    const countAdded = productCount(id)
+
 
     return (
         <div className="cardDetail">
@@ -43,7 +46,7 @@ const ItemDetail = ({ id, name, price,  img,  description, stock}) => {
                 <p>Description: {description}</p>
             </div>
             <div className="counterDetail m-auto ms-lg-5 mb-5 mb-lg-auto">
-                <ItemCounter stock={stock} text={`Stock: ${stock}`} onAdd={addCart}/>
+                { stock !== 0 ? <ItemCounter stock={stock} text={`Stock: ${stock}`} onAdd={addCart} initial={countAdded}/> : <h1 className="h4">No hay stock</h1>}
             </div>
         </div>
     )
