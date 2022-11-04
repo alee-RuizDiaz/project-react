@@ -32,7 +32,7 @@ const NavBar = () => {
             <div className="container p-3">
                 <div className='msa mx-auto mb-4 mb-lg-0 mx-lg-0'>
                     <Link to={'/'} className='tecno'>
-                        <span className='logo'>Tecno</span><span className='logo1 h5'>C</span><span className='logo'>ommerce</span>
+                        <span className='logo'>Tecno</span><span className='logo1 h4'>C</span><span className='logo'>ommerce</span>
                     </Link>
                 </div>
                 <div>
@@ -42,7 +42,7 @@ const NavBar = () => {
                         ))
                     }
                 </div>
-                <div className='me-2'>
+                <div className='me-2 me-lg-2'>
                     <CartWidget/>
                 </div>
             </div>

@@ -10,6 +10,7 @@
 
 .tecno {
     text-decoration: none;
+    font-size: 1.3rem;
 }
 
 .Option {
@@ -37,5 +38,13 @@
     color: #EA95F8;
 }
 
+@media (max-width:480px) {
+    .Option {
+        font-size: 1rem;
+    }
 
+    .ActiveOption {
+        font-size: 1rem;
+    }
+  }
 
