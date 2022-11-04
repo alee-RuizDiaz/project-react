@@ -13,17 +13,17 @@ const ItemCart = ({id, name, price, count}) => {
                 <div className="cartName">
                     <h1 className="h5">{name}</h1>
                 </div>
-                <div className="mx-5">
+                <div className="mx-1 mx-lg-5 fontCart">
                     Precio: ${price}
                 </div>
-                <div className="mx-4">
+                <div className="mx-1 mx-lg-4 fontCart">
                     Cantidad: {count}
                 </div>
-                <div className="mx-4">
+                <div className="mx-1 mx-lg-4 fontCart">
                     SubTotal: ${price * count}
                 </div>
                 <div>
-                    <button className="btn btn-danger ms-3" onClick={() => removeCart(id)} >Remover</button>
+                    <button className="btn btn-danger ms-1 ms-lg-3 p-1 p-lg-2 buttonCartSm" onClick={() => removeCart(id)}>Remover</button>
                 </div>
             </div>
         </div>

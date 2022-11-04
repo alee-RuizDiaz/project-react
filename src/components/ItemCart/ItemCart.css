@@ -13,3 +13,22 @@
     background-color: #F8F9FA;
     border-bottom: 1px solid rgb(156, 150, 150);
 }
+
+@media (max-width:480px) {
+    .cartName h1 {
+        font-size: 13px;
+    }
+
+    .cartName {
+        width: 4rem;
+    }
+
+    .fontCart {
+        font-size: 0.8rem;
+    }
+
+    .buttonCartSm {
+        font-size: 4rem;
+        color: aqua;
+    }
+}

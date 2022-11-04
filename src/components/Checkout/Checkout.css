@@ -25,3 +25,9 @@
     color: black;
     display: flex;
 }
+
+@media (max-width:480px) {
+  .form-register {
+    width: 22rem;
+  }
+}

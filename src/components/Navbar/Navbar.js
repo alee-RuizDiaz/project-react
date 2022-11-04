@@ -38,7 +38,7 @@ const NavBar = () => {
                 <div>
                     {
                         categories.map(cat => (
-                            <NavLink key={cat.id} to={`/category/${cat.slug}`} className={({isActive}) => isActive ? 'ActiveOption mx-3' : 'Option mx-3' }>{cat.label}</NavLink>
+                            <NavLink key={cat.id} to={`/category/${cat.slug}`} className={({isActive}) => isActive ? 'ActiveOption mx-2 mx-lg-3' : 'Option mx-2 mx-lg-3' }>{cat.label}</NavLink>
                         ))
                     }
                 </div>
