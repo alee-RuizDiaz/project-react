@@ -1,37 +1,26 @@
-import { useEffect, useState } from "react"
+import { useAsync } from "../../hooks/useAsync"
 import Spinner from "../Spinner/Spinner"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import "./ItemDetailContainer.css"
 import { useParams } from "react-router-dom"
-import { getDoc, doc } from "firebase/firestore"
-import { db } from "../../services/firebase"
+import { getProduct } from "../../services/firestore/products"
 
 const ItemDetailContainer = () => {
 
-    const [product, setProduct] = useState([])
-    const [spinner, setSpinner] = useState(true)
-
     const { productId } = useParams()
 
-    useEffect (() => {
-
-        setSpinner(true)
-
-        const docRef = doc(db, 'products', productId)
-
-        getDoc(docRef).then(responde => {
-            const data = responde.data()
-            const productAdapted = {id: responde.id, ...data}
-            setProduct(productAdapted)
-        }).finally (() => {
-            setSpinner(false)
-        })
-    }, [productId])
-
+    const getDetailProduct = () => getProduct(productId)
+    
+    const { data: product, error, spinner } = useAsync(getDetailProduct, [productId])
+    
     if (spinner) {
         return (
             <Spinner/>
         )
+    }
+
+    if (error) {
+        return <h1>Hubo un error...</h1>
     }
 
     return (

@@ -12,12 +12,12 @@ export const CartProvider = ({children}) => {
     useEffect(() =>{
         const contador = countCart()
         setTotalCount(contador)
-    }, [cart])
+    }, [cart]) // eslint-disable-line
 
     useEffect(() => {
         const total = totalPrice()
         setTotal(total)
-    }, [cart])
+    }, [cart]) // eslint-disable-line
 
     const addItem = (productToAdd, count) => {
         if(!isInCart(productToAdd.id)) {
